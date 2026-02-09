@@ -1,0 +1,78 @@
+# name of the workflow shown in Actions UI
+name: CI/CD — Build & Push Backend (staging)
+
+# events that trigger the workflow
+on: 
+  # trigger when commits are pushed or manually
+  [push, workflow_dispatch]
+      
+
+# permissions the workflow needs (scoped)
+permissions:
+  contents: read    # allow reading repo contents
+  packages: write   # allow pushing container packages to GHCR
+  id-token: write   # required by some auth flows (kept minimal)
+
+jobs:
+  # single job that builds and pushes images
+  build-and-push:
+    # descriptive name for the job
+    name: Build & Push Images
+    # runner to execute job on
+    runs-on: ubuntu-latest
+
+    steps:
+      # checkout repository code so actions can access it
+      - name: Checkout back-end branch
+        uses: actions/checkout@v4
+        with:
+          # references back-end branch
+          ref: back-end
+
+      # set up QEMU to support multi-arch builds if needed
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v2
+
+      # set up BuildKit driver for cache exporting support
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      # log into GHCR so we can push images; uses repo token
+      - name: Log in to GitHub Container Registry (GHCR)
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}            # current GitHub actor (workflow runner)
+          password: ${{ secrets.GITHUB_TOKEN }}    # token with packages: write permission
+
+      # build and push backend image (tagged by commit and 'staging-latest')
+      - name: Build & Push Backend image
+        if: github.event_name == 'workflow_dispatch' || github.ref_name == 'back-end'       # run only if pushed to back-end branch
+        uses: docker/build-push-action@v5
+        with:
+          context: .                                  # path to backend Docker context, which is the current branch
+          file: ./Dockerfile                 # Dockerfile path for backend
+          push: true                                  # push image after building
+          # tagging image with an unique tag per commit and latest staging tag, respectively
+          tags: |
+            ghcr.io/${{ github.repository_owner }}/backend:staging-${{ github.sha }}   
+            ghcr.io/${{ github.repository_owner }}/backend:staging-latest     
+          cache-from: type=gha                        # use GitHub Actions cache as build cache source
+          cache-to: type=gha,mode=max                 # store cache to GitHub Actions cache
+
+      # optional: store the image names+tags as outputs for other jobs (useful if you expand)
+      #- name: Set output image names
+       # run: |
+        #  echo "BACKEND_IMAGE=ghcr.io/${GITHUB_REPOSITORY_OWNER}/backend:staging-${GITHUB_SHA}" >> $GITHUB_ENV
+         # echo "FRONTEND_IMAGE=ghcr.io/${GITHUB_REPOSITORY_OWNER}/frontend:staging-${GITHUB_SHA}" >> $GITHUB_ENV
+        #env:
+         # GITHUB_REPOSITORY_OWNER: ${{ github.repository_owner }}
+          #GITHUB_SHA: ${{ github.sha }}
+
+      # tell Render to redeploy backend service
+      - name: Trigger Render Backend Deploy
+        # Send a POST request to the Render backend deployment webhook to trigger a redeployment
+        # If the request fails, the workflow will fail due to the '--fail' flag
+        run: |
+          curl -X POST "${{ secrets.RENDER_BACKEND_DEPLOY_HOOK }}" \
+            --fail
