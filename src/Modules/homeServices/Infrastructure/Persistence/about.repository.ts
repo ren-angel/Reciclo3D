@@ -2,11 +2,11 @@ import { Injectable } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
 import { DeleteResult, EntityManager, In, Repository, UpdateResult } from "typeorm";
 import { plainToInstance } from "class-transformer";
-import { AboutRepositoryInterface } from "src/Modules/About/Domain/Repositories/about.repository.interface";
+import { AboutRepositoryInterface } from "src/Modules/homeAbout/Domain/Repositories/homeAbout.repository.interface";
 import { AboutEntity } from "../../Domain/Entities/about.entity";
 import { AboutDto } from "../../Application/DTO/about.dto";
-import { CreateAboutSectionDto } from "src/Modules/About/Interfaces/DTOs/create-about-section.dto";
-import { UpdateAboutSectionDto } from "src/Modules/About/Interfaces/DTOs/update-about-section.dto";
+import { CreateAboutSectionDto } from "src/Modules/homeAbout/Interfaces/DTOs/create-homeAbout-section.dto";
+import { UpdateAboutSectionDto } from "src/Modules/homeAbout/Interfaces/DTOs/update-homeAbout-section.dto";
 
 // Implementation of the AboutRepositoryInterface using TypeORM for database operations
 @Injectable()

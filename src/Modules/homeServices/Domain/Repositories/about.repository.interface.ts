@@ -1,7 +1,7 @@
 import { AboutEntity } from "../Entities/about.entity";
 import { AboutDto } from "../../Application/DTO/about.dto";
-import { CreateAboutSectionDto } from "src/Modules/About/Interfaces/DTOs/create-about-section.dto";
-import { UpdateAboutSectionDto } from "src/Modules/About/Interfaces/DTOs/update-about-section.dto";
+import { CreateAboutSectionDto } from "src/Modules/homeAbout/Interfaces/DTOs/create-homeAbout-section.dto";
+import { UpdateAboutSectionDto } from "src/Modules/homeAbout/Interfaces/DTOs/update-homeAbout-section.dto";
 import { DeleteResult, UpdateResult } from "typeorm";
 
 // Interface defining the contract for About repository operations
