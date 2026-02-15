@@ -73,9 +73,8 @@ export class CreateHomeAboutSectionUseCase {
             this.logger.log('Home about section cached successfully.');
 
             return {
-                success: true,
                 message: 'Seção "Sobre nós" da Home criada com sucesso.',
-                data: newHomeAboutSection,
+                newHomeAboutSection,
             };
         } catch (err) {
 

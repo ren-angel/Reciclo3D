@@ -42,9 +42,8 @@ export class FindHomeAboutSectionsUseCase {
                 this.logger.log('Section fetched from cache successfully.');
 
                 return {
-                    success: true,
                     message: 'Seção "Sobre nós" da Home obtida com sucesso.',
-                    data: cachedSection,
+                    cachedSection,
                 };
             }
 
@@ -72,9 +71,8 @@ export class FindHomeAboutSectionsUseCase {
             this.logger.log('Home about section cached successfully.');
 
             return {
-                success: true,
                 message: 'Seção "Sobre nós" da Home obtida com sucesso.',
-                data: databaseHomeAboutSection,
+                databaseHomeAboutSection,
             };
         } catch (err) {
 

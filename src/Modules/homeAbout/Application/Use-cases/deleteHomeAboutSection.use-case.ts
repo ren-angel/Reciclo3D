@@ -55,7 +55,6 @@ export class DeleteHomeAboutSectionUseCase {
             this.logger.log('Cached section successfully deleted');
             
             return {
-                success: true,
                 message: 'Seção "Sobre nós" da Home removida com sucesso.',
             };
         } catch (err) {

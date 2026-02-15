@@ -82,9 +82,8 @@ export class UpdateHomeServicesSectionUseCase {
             this.logger.log('Home Services section cached successfully');
             
             return {
-                success: true,
                 message: 'Seção "Serviços" da Home atualizada com sucesso.',
-                data: updatedHomeServicesSection,
+                updatedHomeServicesSection,
             };
         } catch (err) {
 

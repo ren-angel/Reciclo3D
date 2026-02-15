@@ -73,9 +73,8 @@ export class CreateHomeServicesSectionUseCase {
             this.logger.log('Home Services section cached successfully.');
 
             return {
-                success: true,
                 message: 'Seção "Serviços" da Home criada com sucesso.',
-                data: newHomeServicesSection,
+                newHomeServicesSection,
             };
         } catch (err) {
 

@@ -42,9 +42,8 @@ export class FindHomeServicesSectionsUseCase {
                 this.logger.log('Section fetched from cache successfully.');
 
                 return {
-                    success: true,
                     message: 'Seção "Serviços" da Home obtida com sucesso.',
-                    data: cachedSection,
+                    cachedSection,
                 };
             }
 
@@ -72,9 +71,8 @@ export class FindHomeServicesSectionsUseCase {
             this.logger.log('Home Services section cached successfully.');
 
             return {
-                success: true,
                 message: 'Seção "Serviços" da Home obtida com sucesso.',
-                data: databaseHomeServicesSection,
+                databaseHomeServicesSection,
             };
         } catch (err) {
 

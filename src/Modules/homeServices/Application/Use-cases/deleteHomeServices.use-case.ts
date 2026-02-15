@@ -55,7 +55,6 @@ export class DeleteHomeServicesSectionUseCase {
             this.logger.log('Cached section successfully deleted');
             
             return {
-                success: true,
                 message: 'Seção "Serviços" da Home removida com sucesso.',
             };
         } catch (err) {
