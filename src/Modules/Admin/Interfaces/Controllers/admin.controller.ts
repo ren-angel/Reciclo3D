@@ -11,11 +11,6 @@ export class AdminController {
 
   constructor(private adminLoginUseCase: AdminLoginUseCase) {}
 
-  @Get('test')
-  test() {
-    return { message: `url: ${URL_PATH}`,  };
-  }
-
   // Endpoint for admin login, which accepts an email and password in the request body, and returns a JWT access token if the credentials are valid
   @Post('login')
   async login(@Body() loginDto: { adminEmail: string; adminPassword: string }): Promise<{ access_token: string }> {
