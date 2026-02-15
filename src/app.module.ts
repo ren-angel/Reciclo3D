@@ -46,7 +46,7 @@ import { HomeServicesEntity } from './Modules/homeServices/Domain/Entities/homeS
         password: configService.get<string>('DB_PASSWORD'),
         database: configService.get<string>('DB_NAME'),
         entities: [HomeAboutEntity, HomeServicesEntity],
-        synchronize: true,
+        synchronize: false, // this option makes it so that the database schema is automatically updated to match the entities defined in the code. It is recommended to set this to false in production to avoid accidental data loss, but it can be useful during development for quick iterations.
       }),
     }),
 
