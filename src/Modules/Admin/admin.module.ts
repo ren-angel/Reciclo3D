@@ -7,6 +7,8 @@ import { AdminEntity } from './Domain/Entities/admin.entity';
 import { JwtStrategy } from '../Shared/jwt.strategy';
 import { AdminController } from './Interfaces/Controllers/admin.controller';
 import { AdminLoginUseCase } from './Application/Use-cases/login.use-case';
+import { AdminRepositoryInterface } from './Domain/Repositories/admin.repository.interface';
+import { TypeOrmAdminRepository } from './Infrastructure/Persistence/admin.repository';
 
 // Module definition for the Admin of the application
 @Module({
@@ -27,7 +29,13 @@ import { AdminLoginUseCase } from './Application/Use-cases/login.use-case';
       inject: [ConfigService],
     }),  
   ],
-  providers: [JwtStrategy, AdminLoginUseCase], // Registering the JwtStrategy for validating JWT tokens and the AdminLoginUseCase for handling login logic
+  providers: [
+    {
+      provide: 'AdminRepositoryInterface', // Providing the AdminRepositoryInterface with its TypeORM implementation
+      useClass: TypeOrmAdminRepository, // Mapping interface to concrete class. So whenever AdminRepositoryInterface is needed, the TypeOrmAdminRepository class will be used instead, enabling dependency injection
+    },
+    JwtStrategy,
+    AdminLoginUseCase], // Registering the JwtStrategy for validating JWT tokens and the AdminLoginUseCase for handling login logic
   controllers: [AdminController], // Registering the AdminController to handle incoming HTTP requests related to admin operations
   exports: [JwtModule], // Exporting JwtModule to make it available for other modules that import AuthModule, allowing them to use JWT functionalities such as signing and verifying tokens
 })
