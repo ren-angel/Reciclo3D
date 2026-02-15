@@ -24,8 +24,7 @@ import { AdminLoginUseCase } from './Application/Use-cases/login.use-case';
       }),
       
       // Injecting ConfigService to access environment variables for JWT configuration
-      // Comment it for test if it works with just the configService on app module, since it is already global. If it works, remove the import of ConfigModule in this module and the inject array here
-      // inject: [ConfigService],
+      inject: [ConfigService],
     }),  
   ],
   providers: [JwtStrategy, AdminLoginUseCase], // Registering the JwtStrategy for validating JWT tokens and the AdminLoginUseCase for handling login logic
