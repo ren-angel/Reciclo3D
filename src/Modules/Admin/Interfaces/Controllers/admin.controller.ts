@@ -5,7 +5,7 @@ import { AdminLoginUseCase } from '../../Application/Use-cases/login.use-case';
 const URL_PATH = `admin/${process.env.ADMIN_URL}`; // The URL is intentionally obfuscated to enhance security by making it less discoverable by bots.
 
 // Controller for handling admin-related endpoints, such as login
-@Controller('admin')
+@Controller(URL_PATH)
 @Throttle({ default: { limit: 10, ttl: seconds(60) } }) // Overriding the default throttling for this specific controller
 export class AdminController {
 
