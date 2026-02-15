@@ -5,7 +5,7 @@ import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateCol
 export class HomeAboutEntity {
 
   // Id column as primary key
-  @PrimaryGeneratedColumn({ name: 'about_id', type: 'int' })
+  @PrimaryGeneratedColumn({ name: 'home_about_id', type: 'int' })
   homeAboutId: number;
 
   // Content text column of varchar type with length of 700 characters and not nullable
