@@ -2,7 +2,7 @@ import { Inject, Injectable, Logger } from "@nestjs/common";
 import { validate } from "class-validator";
 import { CacheService } from "src/Modules/Shared/cache.service";
 import { HomeAboutRepositoryInterface } from "../../Domain/Repositories/homeAbout.repository.interface";
-import { UpdateHomeAboutSectionDto } from "../../Interfaces/DTOs/update-homeAbout-section.dto";
+import { UpdateHomeAboutSectionDto } from "../../Interfaces/DTOs/update-homeAbout.dto";
 import { HomeAboutDto } from "../DTO/homeAbout.dto";
 import { DomainError, EntityNotFoundError, ForbiddenError, InfrastructureError, InvalidEntityError } from "src/Modules/Shared/custom-errors.exception";
 import { Actor as ActorType } from "src/Modules/Shared/actor.interface";

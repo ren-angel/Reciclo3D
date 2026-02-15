@@ -1,6 +1,6 @@
 import { HomeAboutDto } from "../../Application/DTO/homeAbout.dto";
-import { CreateHomeAboutSectionDto } from "src/Modules/homeAbout/Interfaces/DTOs/create-homeAbout-section.dto";
-import { UpdateHomeAboutSectionDto } from "src/Modules/homeAbout/Interfaces/DTOs/update-homeAbout-section.dto";
+import { CreateHomeAboutSectionDto } from "src/Modules/homeAbout/Interfaces/DTOs/create-homeAbout.dto";
+import { UpdateHomeAboutSectionDto } from "src/Modules/homeAbout/Interfaces/DTOs/update-homeAbout.dto";
 import { DeleteResult } from "typeorm";
 
 // Interface defining the contract for About repository operations

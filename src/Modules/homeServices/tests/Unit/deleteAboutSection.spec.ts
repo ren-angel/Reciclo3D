@@ -1,4 +1,4 @@
-import { DeleteAboutSectionUseCase } from '../../Application/Use-cases/deleteAboutSection.use-case';
+import { DeleteAboutSectionUseCase } from '../../Application/Use-cases/deleteHomeServices.use-case';
 import { DeleteResult } from 'typeorm';
 import {
   DomainError,

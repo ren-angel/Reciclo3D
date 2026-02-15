@@ -1,15 +1,12 @@
 import { Expose } from "class-transformer";
 
-// DTO for reading about section data
-export class AboutDto {
+// DTO for reading home "Services" section data
+export class HomeServicesDto {
 
   // Expose decorator to include these fields when transforming the entity to this DTO
   @Expose()
-  aboutId: string;
+  homeServicesId: string;
 
   @Expose()
-  section: string;
-  
-  @Expose()
-  contentText: string;
+  homeServicesContentText: string;
 }

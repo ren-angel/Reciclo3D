@@ -3,7 +3,7 @@
 import { Test } from '@nestjs/testing';
 import { INestApplication } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { AboutModule } from '../about.module';
+import { AboutModule } from '../homeAbout.module';
 import { AboutEntity } from '../Domain/Entities/homeAbout.entity';
 import * as request from 'supertest';
 // import { AppModule } from '../../src/app.module'; // optional if you want full module

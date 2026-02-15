@@ -5,8 +5,8 @@ import { plainToInstance } from "class-transformer";
 import { HomeAboutRepositoryInterface } from "src/Modules/homeAbout/Domain/Repositories/homeAbout.repository.interface";
 import { HomeAboutEntity } from "../../Domain/Entities/homeAbout.entity";
 import { HomeAboutDto } from "../../Application/DTO/homeAbout.dto";
-import { CreateHomeAboutSectionDto } from "src/Modules/homeAbout/Interfaces/DTOs/create-homeAbout-section.dto";
-import { UpdateHomeAboutSectionDto } from "src/Modules/homeAbout/Interfaces/DTOs/update-homeAbout-section.dto";
+import { CreateHomeAboutSectionDto } from "src/Modules/homeAbout/Interfaces/DTOs/create-homeAbout.dto";
+import { UpdateHomeAboutSectionDto } from "src/Modules/homeAbout/Interfaces/DTOs/update-homeAbout.dto";
 
 // Implementation of the HomeAboutRepositoryInterface using TypeORM for database operations
 @Injectable()

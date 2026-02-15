@@ -10,7 +10,7 @@ export class HomeAboutEntity {
 
   // Content text column of varchar type with length of 700 characters and not nullable
   @Column({ name: 'home_about_content_text', type: 'varchar', length: 700, nullable: false })
-  homeContentText: string;
+  homeAboutContentText: string;
 
   // Timestamps for record creation and last update
   @CreateDateColumn({ name: 'created_at' })

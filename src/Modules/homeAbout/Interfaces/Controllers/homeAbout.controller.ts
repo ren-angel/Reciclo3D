@@ -1,6 +1,6 @@
 import { Controller, UseGuards, Get, Post, Body, Put, Param, Delete } from '@nestjs/common';
-import { CreateHomeAboutSectionDto } from '../DTOs/create-homeAbout-section.dto';
-import { UpdateHomeAboutSectionDto } from '../DTOs/update-homeAbout-section.dto';
+import { CreateHomeAboutSectionDto } from '../DTOs/create-homeAbout.dto';
+import { UpdateHomeAboutSectionDto } from '../DTOs/update-homeAbout.dto';
 
 import { FindHomeAboutSectionsUseCase } from '../../Application/Use-cases/findHomeAboutSections.use-case';
 import { CreateHomeAboutSectionUseCase } from '../../Application/Use-cases/createHomeAboutSection.use-case';

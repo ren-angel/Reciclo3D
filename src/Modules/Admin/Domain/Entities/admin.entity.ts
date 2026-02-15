@@ -15,7 +15,7 @@ export class AdminEntity {
   adminEmail: string;
 
   // Password column of varchar type with character limit of 255 and not nullable
-  @Column({ name: 'password', type: 'varchar', length: 255, nullable: false })
+  @Column({ name: 'admin_password', type: 'varchar', length: 255, nullable: false })
   adminPassword: string;
   
   // Verification code column of char type with character limit of 6

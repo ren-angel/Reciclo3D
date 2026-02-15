@@ -9,8 +9,10 @@ import { CacheModule } from '@nestjs/cache-manager';
 import * as redisStore from 'cache-manager-ioredis';
 import { BullModule } from '@nestjs/bullmq';
 import { SharedModule } from './Modules/Shared/shared.module';
-import { HomeAboutModule } from './Modules/homeAbout/about.module';
+import { HomeAboutModule } from './Modules/homeAbout/homeAbout.module';
+import { HomeServicesModule } from './Modules/homeServices/homeServices.module';
 import { HomeAboutEntity } from './Modules/homeAbout/Domain/Entities/homeAbout.entity';
+import { HomeServicesEntity } from './Modules/homeServices/Domain/Entities/homeServices.entity';
 
 @Module({
   imports: [
@@ -43,7 +45,7 @@ import { HomeAboutEntity } from './Modules/homeAbout/Domain/Entities/homeAbout.e
         username: configService.get<string>('DB_USER'),
         password: configService.get<string>('DB_PASSWORD'),
         database: configService.get<string>('DB_NAME'),
-        entities: [HomeAboutEntity],
+        entities: [HomeAboutEntity, HomeServicesEntity],
         synchronize: true,
       }),
     }),
@@ -103,6 +105,7 @@ import { HomeAboutEntity } from './Modules/homeAbout/Domain/Entities/homeAbout.e
 
     SharedModule,
     HomeAboutModule,
+    HomeServicesModule,
   ],
   // providers: [emailProcessor],
   providers: [

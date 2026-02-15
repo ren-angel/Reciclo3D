@@ -8,5 +8,5 @@ export class HomeAboutDto {
   homeAboutId: string;
 
   @Expose()
-  homeContentText: string;
+  homeAboutContentText: string;
 }

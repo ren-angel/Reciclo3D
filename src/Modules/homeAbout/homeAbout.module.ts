@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { HomeAboutController } from './Interfaces/Controllers/about.controller';
+import { HomeAboutController } from './Interfaces/Controllers/homeAbout.controller';
 import { HomeAboutEntity } from './Domain/Entities/homeAbout.entity';
 import { AdminModule } from '../Admin/admin.module';
 import { FindHomeAboutSectionsUseCase } from './Application/Use-cases/findHomeAboutSections.use-case';

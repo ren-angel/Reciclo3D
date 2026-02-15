@@ -1,6 +1,6 @@
 import { validate as classValidate } from "class-validator";
-import { UpdateAboutSectionUseCase } from '../../Application/Use-cases/updateAboutSection.use-case';
-import { UpdateAboutSectionDto } from '../../Interfaces/DTOs/update-about-section.dto';
+import { UpdateAboutSectionUseCase } from '../../Application/Use-cases/updateHomeServices.use-case';
+import { UpdateAboutSectionDto } from '../../Interfaces/DTOs/update-homeServices.dto';
 import { DomainError } from "src/Modules/Shared/custom-errors.exception";
 
 // Mock the class-validator validate function
