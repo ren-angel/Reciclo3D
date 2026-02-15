@@ -29,13 +29,15 @@ import { TypeOrmAdminRepository } from './Infrastructure/Persistence/admin.repos
       inject: [ConfigService],
     }),  
   ],
-  providers: [
+  providers: [  
     {
       provide: 'AdminRepositoryInterface', // Providing the AdminRepositoryInterface with its TypeORM implementation
       useClass: TypeOrmAdminRepository, // Mapping interface to concrete class. So whenever AdminRepositoryInterface is needed, the TypeOrmAdminRepository class will be used instead, enabling dependency injection
     },
+    // Registering the JwtStrategy for validating JWT tokens and the AdminLoginUseCase for handling login logic
     JwtStrategy,
-    AdminLoginUseCase], // Registering the JwtStrategy for validating JWT tokens and the AdminLoginUseCase for handling login logic
+    AdminLoginUseCase
+  ],
   controllers: [AdminController], // Registering the AdminController to handle incoming HTTP requests related to admin operations
   exports: [JwtModule], // Exporting JwtModule to make it available for other modules that import AuthModule, allowing them to use JWT functionalities such as signing and verifying tokens
 })

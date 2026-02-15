@@ -1,4 +1,4 @@
-import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
 
 // ATTENTION: Turn ON verification code again by making it non-nullable here and on database, and then apply it to the jwt and admin logins parts of this code
 

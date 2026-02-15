@@ -9,8 +9,10 @@ import { CacheModule } from '@nestjs/cache-manager';
 import * as redisStore from 'cache-manager-ioredis';
 import { BullModule } from '@nestjs/bullmq';
 import { SharedModule } from './Modules/Shared/shared.module';
+import { AdminModule } from './Modules/Admin/admin.module';
 import { HomeAboutModule } from './Modules/homeAbout/homeAbout.module';
 import { HomeServicesModule } from './Modules/homeServices/homeServices.module';
+import { AdminEntity } from './Modules/Admin/Domain/Entities/admin.entity';
 import { HomeAboutEntity } from './Modules/homeAbout/Domain/Entities/homeAbout.entity';
 import { HomeServicesEntity } from './Modules/homeServices/Domain/Entities/homeServices.entity';
 
@@ -45,7 +47,7 @@ import { HomeServicesEntity } from './Modules/homeServices/Domain/Entities/homeS
         username: configService.get<string>('DB_USER'),
         password: configService.get<string>('DB_PASSWORD'),
         database: configService.get<string>('DB_NAME'),
-        entities: [HomeAboutEntity, HomeServicesEntity],
+        entities: [AdminEntity, HomeAboutEntity, HomeServicesEntity],
         synchronize: false, // this option makes it so that the database schema is automatically updated to match the entities defined in the code. It is recommended to set this to false in production to avoid accidental data loss, but it can be useful during development for quick iterations.
       }),
     }),
@@ -104,6 +106,7 @@ import { HomeServicesEntity } from './Modules/homeServices/Domain/Entities/homeS
     // }),
 
     SharedModule,
+    AdminModule,
     HomeAboutModule,
     HomeServicesModule,
   ],
