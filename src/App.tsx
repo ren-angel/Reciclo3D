@@ -1,6 +1,8 @@
 // Temporary main page. Properly separate pages and components later.
-// order: assets → services? (search more to see if that's correct for api stuff) → utils if necessary → components (shared, then page-specific) → pages → routes? → styles (global, then page/component-specific)
+// order: services (finish them with admin panel) → utils if necessary → components (shared, then page-specific) → pages → routes? → styles (global, then page/component-specific)
 // order 2: main, login and then admin
+
+// https://picsum.photos/200/300
 
 import React from 'react'
 import Logo from './assets/Logo.png';

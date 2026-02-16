@@ -1,124 +1,81 @@
 import axiosInstance from './axiosInstance';
 
-// finish later
-const alunosService = {
+const homeAboutService = {
 
-    fetchHomeAboutSection: async (token: string, homeAboutId: ) => {
+    fetchHomeAboutSection: async (token: string, homeAboutId: string) => {
         
         try {
 
-            const response = await axiosInstance.get(`/aluno/${nome}`, {
+            const response = await axiosInstance.get(`/homeAbout/${homeAboutId}`, {
                 headers: { Authorization: `Bearer ${token}` }
             });
 
             if (response.status === 200) {
             
-                return response.data.alunoEspecifico;
+                // return response.data.todosAlunos;
             }
         } catch (error) {
 
-            if (error.response && error.response.status === 401) {
+            // also check if 401 error message appears even with the redirect from the axios interceptor
 
-                throw new Error("Sessão expirada. Por favor, faça login novamente.");
-            }
-
-            throw new Error(error.response.data.mensagem || 'Falha ao buscar o aluno pelo nome');
+            // throw new Error(error.response.data.mensagem || 'Falha ao buscar os alunos');
         }
     },
 
-    barraDeBusca: async (token, pesquisa) => {
+    createHomeAboutSection: async (token: string, homeAboutContent: object) => {
 
         try {
 
-            const response = await axiosInstance.get(`/busca`, {
+            const response = await axiosInstance.post('/homeAbout', homeAboutContent, {
+                headers: { Authorization: `Bearer ${token}` }
+            });
+
+            if (response.status === 200) {
+            
+                // return response.data.mensagem;
+            }
+        } catch (error) {
+
+            // throw new Error(error.response.data.mensagem || 'Falha ao criar o aluno');
+        }
+    },
+
+    updateHomeAboutSection: async (token: string, homeAboutId: string, homeAboutContent: object) => {
+
+        try {
+
+            const response = await axiosInstance.put(`/homeAbout/${homeAboutId}`, homeAboutContent, {
+                headers: { Authorization: `Bearer ${token}` }
+            });
+
+            if (response.status === 200) {
+            
+                // return response.data.mensagem;
+            }
+        } catch (error) {
+
+            // throw new Error(error.response.data.mensagem || 'Falha ao editar o aluno');
+        }
+    },
+
+    deleteHomeAboutSection: async (token: string, homeAboutId: string) => {
+
+        try {
+
+            const response = await axiosInstance.delete(`/homeAbout/${homeAboutId}`, {
                 headers: { Authorization: `Bearer ${token}` },
-                params: { pesquisa }
+                // params: { homeAboutId } // in case delete endpoint doesn't accept id in the url
             });
 
             if (response.status === 200) {
             
-                return response.data.alunosEncontrados;
+                // return response.data.mensagem;
             }
         } catch (error) {
 
-            if (error.response && error.response.status === 401) {
-
-                throw new Error("Sessão expirada. Por favor, faça login novamente.");
-            }
-
-            throw new Error(error.response.data.mensagem || 'Falha ao realizar a busca');
-        }
-    },
-
-    criarAluno: async (token, alunoInfo) => {
-
-        try {
-
-            const response = await axiosInstance.post('/novo-aluno', alunoInfo, {
-                headers: { Authorization: `Bearer ${token}` }
-            });
-
-            if (response.status === 200) {
-            
-                return response.data.mensagem;
-            }
-        } catch (error) {
-
-            if (error.response && error.response.status === 401) {
-
-                throw new Error("Sessão expirada. Por favor, faça login novamente.");
-            }
-
-            throw new Error(error.response.data.mensagem || 'Falha ao criar o aluno');
-        }
-    },
-
-    editarAluno: async (token, alunoInfo) => {
-
-        try {
-
-            const response = await axiosInstance.put('/editar-aluno', alunoInfo, {
-                headers: { Authorization: `Bearer ${token}` }
-            });
-
-            if (response.status === 200) {
-            
-                return response.data.mensagem;
-            }
-        } catch (error) {
-
-            if (error.response && error.response.status === 401) {
-
-                throw new Error("Sessão expirada. Por favor, faça login novamente.");
-            }
-
-            throw new Error(error.response.data.mensagem || 'Falha ao editar o aluno');
-        }
-    },
-
-    removerAluno: async (token, id) => {
-
-        try {
-
-            const response = await axiosInstance.delete('/remover-aluno', {
-                headers: { Authorization: `Bearer ${token}` },
-                params: { id }
-            });
-
-            if (response.status === 200) {
-            
-                return response.data.mensagem;
-            }
-        } catch (error) {
-
-            if (error.response && error.response.status === 401) {
-
-                throw new Error("Sessão expirada. Por favor, faça login novamente.");
-            }
-
-            throw new Error(error.response.data.mensagem || 'Falha ao remover o aluno');
+            // throw new Error(error.response.data.mensagem || 'Falha ao remover o aluno');
         }
     }
 };
 
-export default alunosService;
+export default homeAboutService;
