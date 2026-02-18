@@ -1,0 +1,35 @@
+@use "variables" as *;
+
+.site-header {
+    padding: 14px 0;
+    background-color: $primary;
+
+    .header-inner {
+        display: flex;
+        align-items: center;
+    }
+
+    .logo {
+        max-width: 25%;
+        height: auto;
+    }
+
+    .header-links {
+        display: none;
+    }
+
+    @media (min-width: 1080px) {
+        .header-links {
+            display: flex;
+            gap: 100px;
+            margin-left: 18px;
+        
+            a {
+                color: $text;
+                text-decoration: none;
+                font-size: 0.95rem;
+                font-weight: 500;
+            }
+        }
+    }
+}

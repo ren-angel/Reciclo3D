@@ -1,0 +1,51 @@
+/* Font family */
+$font-primary: "Montserrat", system-ui, -apple-system, "Segoe UI",
+  Roboto, "Helvetica Neue", Arial, sans-serif;
+
+/* Font weights */
+$weight-regular: 400;
+$weight-semibold: 600;
+$weight-bold: 700;
+
+/* Font sizes */
+$fs-hero: 64px;
+$fs-h1: 32px;
+$fs-h2: 24px;
+$fs-body: 20px;
+$fs-small: 18px;
+
+/* Line heights (recommended for readability) */
+$lh-tight: 1.15;
+$lh-normal: 1.45;
+$lh-relaxed: 1.6;
+
+/* Typography presets */
+$hero-style: (
+  font-size: $fs-hero,
+  font-weight: $weight-bold,
+  line-height: $lh-tight
+);
+
+$h1-style: (
+  font-size: $fs-h1,
+  font-weight: $weight-semibold,
+  line-height: $lh-tight
+);
+
+$h2-style: (
+  font-size: $fs-h2,
+  font-weight: $weight-semibold,
+  line-height: $lh-normal
+);
+
+$body-style: (
+  font-size: $fs-body,
+  font-weight: $weight-regular,
+  line-height: $lh-relaxed
+);
+
+$small-style: (
+  font-size: $fs-small,
+  font-weight: $weight-regular,
+  line-height: $lh-normal
+);

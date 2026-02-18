@@ -1,0 +1,35 @@
+@use "variables" as *;
+
+.home-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: $bg-contrast;
+    border-radius: 10px 10px 0 0;
+    margin: 20px ;
+    
+    .home-card-inner {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 14px;  
+        gap: 10px;
+
+        h3 {
+            margin: 0;
+            color: $text;
+        }
+
+        p {
+            margin: 0;
+            color: $muted;
+            text-align: center;
+        }
+    }
+
+    img {
+        width: 100%;
+        height: auto;
+        border-radius: 0 0 10px 10px;
+    }
+}

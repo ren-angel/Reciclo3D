@@ -1,12 +1,12 @@
 import axiosInstance from './axiosInstance';
 
-const homeAboutService = {
+const homeServicesService = {
 
-    fetchHomeAboutSection: async (token: string, homeAboutId: string) => {
+    fetchHomeServicesSection: async (token: string, homeServicesId: string) => {
         
         try {
 
-            const response = await axiosInstance.get(`/homeAbout/${homeAboutId}`, {
+            const response = await axiosInstance.get(`/homeServices/${homeServicesId}`, {
                 headers: { Authorization: `Bearer ${token}` }
             });
 
@@ -22,11 +22,11 @@ const homeAboutService = {
         }
     },
 
-    createHomeAboutSection: async (token: string, homeAboutContent: object) => {
+    createHomeServicesSection: async (token: string, homeServicesContent: object) => {
 
         try {
 
-            const response = await axiosInstance.post('/homeAbout', homeAboutContent, {
+            const response = await axiosInstance.post('/homeServices', homeServicesContent, {
                 headers: { Authorization: `Bearer ${token}` }
             });
 
@@ -40,11 +40,11 @@ const homeAboutService = {
         }
     },
 
-    updateHomeAboutSection: async (token: string, homeAboutId: string, homeAboutContent: object) => {
+    updateHomeServicesSection: async (token: string, homeServicesId: string, homeServicesContent: object) => {
 
         try {
 
-            const response = await axiosInstance.put(`/homeAbout/${homeAboutId}`, homeAboutContent, {
+            const response = await axiosInstance.put(`/homeServices/${homeServicesId}`, homeServicesContent, {
                 headers: { Authorization: `Bearer ${token}` }
             });
 
@@ -58,13 +58,13 @@ const homeAboutService = {
         }
     },
 
-    deleteHomeAboutSection: async (token: string, homeAboutId: string) => {
+    deleteHomeServicesSection: async (token: string, homeServicesId: string) => {
 
         try {
 
-            const response = await axiosInstance.delete(`/homeAbout/${homeAboutId}`, {
+            const response = await axiosInstance.delete(`/homeServices/${homeServicesId}`, {
                 headers: { Authorization: `Bearer ${token}` },
-                // params: { homeAboutId } // in case delete endpoint doesn't accept id in the url
+                // params: { homeServicesId } // in case delete endpoint doesn't accept id in the url
             });
 
             if (response.status === 200) {
@@ -78,4 +78,4 @@ const homeAboutService = {
     }
 };
 
-export default homeAboutService;
+export default homeServicesService;
