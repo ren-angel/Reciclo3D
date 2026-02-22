@@ -36,7 +36,7 @@ export class FindHomeServicesSectionsUseCase {
 
                 return {
                     message: 'Seção "Serviços" da Home obtida com sucesso.',
-                    cachedSection,
+                    section: cachedSection,
                 };
             }
 
@@ -65,7 +65,7 @@ export class FindHomeServicesSectionsUseCase {
 
             return {
                 message: 'Seção "Serviços" da Home obtida com sucesso.',
-                databaseHomeServicesSection: databaseHomeServicesSection[0],
+                section: databaseHomeServicesSection[0],
             };
         } catch (err) {
 
