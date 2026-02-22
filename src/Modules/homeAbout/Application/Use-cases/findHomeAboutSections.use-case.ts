@@ -50,7 +50,7 @@ export class FindHomeAboutSectionsUseCase {
             );
 
             // If no section is found, return null
-            if (!databaseHomeAboutSection) {
+            if (databaseHomeAboutSection.length === 0) {
 
                 this.logger.log('No section was found in repository.');
                 return null;
