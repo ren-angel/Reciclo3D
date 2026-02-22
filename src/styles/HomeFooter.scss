@@ -1,13 +1,31 @@
 @use "variables" as *;
 
 .site-footer {
-  padding: 18px 0;
-  border-top: 1px solid #f2f2f2;
+  padding: 14px;
+  background-color: $primary;
 
   .footer-inner {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: space-between;
+    gap: 20px;
+
+    .footer-logo {
+      max-width: 35%;
+      height: auto;
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 20px;
+
+      a img {
+        width: 24px;
+        height: 24px;
+        // filter: invert(100%) sepia(100%) grayscale(100%) brightness(150%);
+      }
+    }
 
     small {
       color: $muted;

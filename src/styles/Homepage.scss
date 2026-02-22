@@ -119,31 +119,6 @@
   }
 }
 
-/* contact */
-.contact-inner {
-  display: grid;
-  gap: 12px;
-  grid-template-columns: 1fr;
-  align-items: start;
-
-  .contact-card {
-    background: linear-gradient(180deg, #fff, #fff);
-    padding: 16px;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
-
-    h3 {
-      margin-top: 0;
-      color: $primary;
-    }
-  }
-
-  .contact-info {
-    color: $muted;
-    font-size: 0.95rem;
-  }
-}
-
 /* responsive */
 @media (min-width: 720px) {
   .hero {
@@ -155,10 +130,6 @@
 
   .services-grid {
     grid-template-columns: repeat(2, 1fr);
-  }
-
-  .contact-inner {
-    grid-template-columns: 1fr 280px;
   }
 }
 

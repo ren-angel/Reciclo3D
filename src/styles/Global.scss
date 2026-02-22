@@ -70,12 +70,17 @@ small {
 
 /* Links */
 a {
-  color: $secondary;
+  color: darken($secondary, 6%);
   text-decoration: none;
 
   &:hover {
-    color: darken($secondary, 8%);
+    color: darken($secondary, 15%);
   }
+}
+
+.logo {
+  max-width: 25%;
+  height: auto;
 }
 
 /* Buttons */

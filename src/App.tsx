@@ -6,6 +6,7 @@
 
 import React from 'react'
 import HomeHeader from './components/HomeHeader'
+import HomeFooter from './components/HomeFooter'
 import HomeCards from './components/HomeCards';
 import HomeObjectives from './components/HomeObjectives';
 import AlertCircleIcon from './assets/alert-circle.svg'
@@ -13,6 +14,28 @@ import BoxIcon from './assets/box.svg'
 import CheckmarkIcon from './assets/check.svg'
 import ShieldIcon from './assets/shield.svg'
 import heroArt from './assets/hero.jpg';
+
+import homeAboutService from './services/homeAboutService';
+import homeServicesService from './services/homeServicesService';
+
+const [homeAboutData, setHomeAboutData] = React.useState(null);
+const [homeServicesData, setHomeServicesData] = React.useState(null);
+
+React.useEffect(() => {
+  const fetchData = async () _> {
+
+    try {
+
+      const aboutData = await homeAboutService.fetchHomeAboutSection();
+      setHomeAboutData(aboutData);
+
+      const servicesData = await homeServicesService.getServicesInfo();
+      setHomeServicesData(servicesData);
+    } catch (error) {
+      console.error('Error fetching home data:', error);
+    }
+  }
+}, []);
 
 export default function App() {
   return (
@@ -43,6 +66,7 @@ export default function App() {
           <HomeCards
             title="Sobre Nós"
             content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel sapien eget nunc efficitur varius. Sed at ligula a enim efficitur commodo."
+            buttonUrl="#"
           />
         </section>
 
@@ -69,38 +93,15 @@ export default function App() {
           />
         </section>
 
-        {/* <section id="services" className="section home-about"> */}
+        <section id="services" className="section home-services">
           <HomeCards
             title="Sobre Nós"
             content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel sapien eget nunc efficitur varius. Sed at ligula a enim efficitur commodo."
+            buttonUrl="#"
           />
         </section>
-
-        <section id="contact" className="section contact">
-          <div className="container contact-inner">
-            <div className="contact-card">
-              <h3>Fale conosco</h3>
-              <p>Curabitur quis diam ullamcorper, fermentum tellus.</p>
-              <a className="btn btn-primary" href="mailto:example@example.com">Enviar e-mail</a>
-            </div>
-            <div className="contact-info">
-              <p><strong>Telefone</strong><br/>(99) 99999-9999</p>
-              <p><strong>Email</strong><br/>example@example.com</p>
-            </div>
-          </div>
-        </section>
       </main>
-
-      <footer className="site-footer">
-        <div className="container footer-inner">
-          <small>© {new Date().getFullYear()} ReCiclo3D®. Todos os direitos reservados.</small>
-          <nav>
-            <a href="#services">Serviços</a>
-            <a href="#about">Sobre</a>
-            <a href="#contact">Contato</a>
-          </nav>
-        </div>
-      </footer>
+      <HomeFooter />
     </div>
   )
 }
