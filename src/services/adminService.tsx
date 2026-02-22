@@ -1,8 +1,7 @@
 import axiosInstance from './axiosInstance';
 import axios from 'axios';
 
-// const ADMIN_URL = import.meta.env.VITE_API_BASE_URL;
-const ADMIN_URL = 'Z3ZOtDUMsy9wMXW';
+const API_ADMIN_URL = import.meta.env.VITE_API_ADMIN_URL;
 
 const adminService = {
 
@@ -10,7 +9,7 @@ const adminService = {
         
         try {
 
-            const response = await axiosInstance.post(`/admin/${ADMIN_URL}/login`, { adminEmail, adminPassword });
+            const response = await axiosInstance.post(`/admin/${API_ADMIN_URL}/login`, { adminEmail, adminPassword });
 
             if (response.data.success) {
 

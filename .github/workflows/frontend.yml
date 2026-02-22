@@ -70,9 +70,9 @@ jobs:
           #GITHUB_SHA: ${{ github.sha }}
 
       # tell Render to redeploy frontend service
-      # - name: Trigger Render Frontend Deploy
+      - name: Trigger Render Frontend Deploy
         # Send a POST request to the Render frontend deployment webhook to trigger a redeployment
         # If the request fails, the workflow will fail due to the '--fail' flag
-        # run: |
-        #   curl -X POST "${{ secrets.RENDER_FRONTEND_DEPLOY_HOOK }}" \
-        #     --fail
+        run: |
+          curl -X POST "${{ secrets.RENDER_FRONTEND_DEPLOY_HOOK }}" \
+            --fail

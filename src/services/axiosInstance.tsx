@@ -2,8 +2,7 @@ import axios from 'axios';
 
 // Axios instance for API calls, with base URL from environment variable and interceptor for handling 401 errors (token expiration)
 const axiosInstance = axios.create({
-  // baseURL: import.meta.env.VITE_API_BASE_URL || 'http://localhost:8080/api', // import env variables on vite with import.meta.env
-  baseURL: 'https://reciclo3d-backend.onrender.com/',
+  baseURL: import.meta.env.VITE_API_BASE_URL || 'http://localhost:8080/api', // import env variables on vite with import.meta.env
 });
 
 // Interceptor to catch 401 errors and handle token expiration by clearing the token cookie and redirecting to home page
