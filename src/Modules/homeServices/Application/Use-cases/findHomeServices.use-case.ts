@@ -49,6 +49,7 @@ export class FindHomeServicesSectionsUseCase {
                 async () => await this.homeServicesRepository.find()
             );
 
+            console.log(databaseHomeServicesSection);
             // If no section is found, return null
             if (!databaseHomeServicesSection) {
 
