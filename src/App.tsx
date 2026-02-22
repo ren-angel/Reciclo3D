@@ -1,4 +1,3 @@
-import React from 'react'
 import { CookiesProvider } from 'react-cookie';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'

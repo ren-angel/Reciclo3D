@@ -1,0 +1,136 @@
+@use "variables" as *;
+
+.admin-home {
+    min-height: 100svh;
+    padding: clamp(20px, 4vw, 36px);
+    background-color: $bg-sections;
+
+    .admin-home-logo {
+        height: clamp(32px, 7vw, 80px);
+        width: auto;
+    }
+
+    .admin-home-header {
+        margin-bottom: 18px;
+
+        h1 {
+            margin-bottom: 6px;
+            color: $text;
+        }
+
+        .muted {
+            margin: 0;
+            color: $muted;
+        }
+    }
+
+    .admin-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .admin-column {
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+    }
+
+    .card {
+        background: $bg-contrast;
+        border: 1px solid rgba($muted, 0.12);
+        border-radius: 12px;
+        padding: 14px;
+        box-shadow: 0 10px 30px rgba(11,11,11,0.04);
+    }
+
+    /* Forms */
+    .card-form {
+        .card-title {
+            margin: 0 0 12px 0;
+            color: $text;
+        }
+
+        .admin-form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+            label {
+                color: $muted;
+            }
+
+            input,
+            textarea {
+                width: 100%;
+                padding: 12px 14px;
+                border-radius: 10px;
+                border: 1px solid rgba($muted, 0.12);
+                color: $text;
+                resize: vertical;
+                background: #fff;
+
+                &:focus {
+                    outline: none;
+                    border-color: $secondary;
+                    box-shadow: 0 6px 18px rgba($secondary, 0.08);
+                }
+            }
+
+            .form-actions {
+                display: flex;
+                gap: 10px;
+                margin-top: 6px;
+            }
+        }
+    }
+
+    /* Preview */
+    .admin-preview .preview-card {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+
+        .card-title { margin: 0; }
+
+        .preview-body {
+        .preview-title {
+            margin: 0 0 8px 0;
+            color: $text;
+        }
+
+        .preview-text {
+            margin: 0 0 12px 0;
+        }
+
+        .preview-subtitle { margin: 0 0 8px 0; color: $text; }
+
+        .preview-list {
+            margin: 0;
+            padding-left: 20px;
+            color: $muted;
+        }
+        }
+
+        .preview-actions {
+        display: flex;
+        justify-content: flex-end;
+        }
+    }
+}
+
+/* Responsive: 2-column layout at 1024px */
+@media (min-width: 1024px) {
+    .admin-home {
+        .admin-grid {
+            grid-template-columns: 1fr 380px; /* forms | preview */
+            align-items: start;
+            gap: 24px;
+        }
+
+        .admin-preview .preview-card {
+            position: sticky;
+            top: 28px;
+        }
+    }
+}

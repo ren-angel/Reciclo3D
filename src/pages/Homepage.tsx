@@ -30,10 +30,10 @@ export default function Homepage() {
       try {
   
         const aboutData = await homeAboutService.fetchHomeAboutSection();
-        setHomeAboutData(aboutData);
+        setHomeAboutData(aboutData.homeAboutContentText);
   
         const servicesData = await homeServicesService.fetchHomeServicesSection();
-        setHomeServicesData(servicesData);
+        setHomeServicesData(servicesData.homeServicesContentText);
       } catch (error) {
   
         console.error(error);

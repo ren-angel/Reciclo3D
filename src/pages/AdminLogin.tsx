@@ -24,7 +24,7 @@ export default function AdminLogin() {
         }
     }, [cookies.token, navigate]);
 
-    const handleSubmit = async (e: React.SyntheticEvent) => {
+    const handleSubmit = async (e: React.SyntheticEvent<HTMLFormElement>) => {
 
         e.preventDefault();
 
