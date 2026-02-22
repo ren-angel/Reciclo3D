@@ -68,6 +68,9 @@
 }
 
 .hero-cta {
+  display: flex;
+  flex-direction: column;
+  max-width: 75%;
   margin-top: 20px;
 
   .btn {
@@ -88,66 +91,52 @@
   }
 }
 
-/* services */
-.services-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 12px;
-  margin-top: 8px;
-
-  .card {
-    background: white;
-    border-radius: 15px;
-    padding: 14px;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
-
-    h3 {
-      margin: 6px 0;
-      font-size: 1rem;
-    }
-
-    p {
-      margin: 0;
-      color: $muted;
-      font-size: 0.95rem;
-    }
-
-    .card-icon {
-      font-size: 22px;
-      color: $primary;
-    }
+@media (min-width: 768px) {
+  .hero-cta {
+    max-width: 50%;
+    margin-top: 50px;
   }
 }
 
-/* responsive */
-@media (min-width: 720px) {
+@media (min-width: 1024px) {
   .hero {
-    .hero-art {
-      display: block;
-      width: 360px;
-    }
+    align-items: center;
   }
 
-  .services-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (min-width: 1080px) {
-  .hero {
-    padding: 48px 0 80px;
-
-    .hero-text {
-      width: 55%;
-    }
-
-    .hero-art {
-      width: 40%;
-    }
+  /* Layout: text left, image right */
+  .hero-inner {
+    display: flex;
+    flex-direction: column;
+    // justify-content: space-between;
   }
 
-  .services-grid {
-    grid-template-columns: repeat(4, 1fr);
-    gap: 18px;
+  .hero-text {
+    max-width: 520px;
+  }
+
+  /* Background image only on the right side */
+  .hero-bg {
+    left: 25%;
+    width: 75%;
+  }
+
+  /* Swap gradient: horizontal fade */
+  .hero::after {
+    background: linear-gradient(
+      90deg,
+      rgba($primary, 1) 35%,
+      rgba($primary, 0.5) 65%,
+      rgba($primary, 0.15) 85%,
+      rgba($primary, 0) 100%
+    );
+  }
+
+  .hero-cta {
+    gap: 12px;
+  }
+
+  .home-objectives-parent {
+    display: flex;
+    flex-direction: row;
   }
 }

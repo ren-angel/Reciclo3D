@@ -2,15 +2,15 @@ import axiosInstance from './axiosInstance';
 
 const homeAboutService = {
 
-    fetchHomeAboutSection: async (homeAboutId: string) => {
+    fetchHomeAboutSection: async () => {
         
         try {
 
-            const response = await axiosInstance.get(`/homeAbout/${homeAboutId}`);
+            const response = await axiosInstance.get(`/homeAbout`);
 
             if (response.status === 200) {
             
-                // return response.data.todosAlunos;
+                return response.data;
             }
         } catch (error) {
 

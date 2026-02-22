@@ -1,6 +1,7 @@
 import axiosInstance from './axiosInstance';
 
-const ADMIN_URL = import.meta.env.VITE_API_BASE_URL;
+// const ADMIN_URL = import.meta.env.VITE_API_BASE_URL;
+const ADMIN_URL = 'Z3ZOtDUMsy9wMXW';
 
 const adminService = {
 
@@ -8,17 +9,19 @@ const adminService = {
         
         try {
 
-            const response = await axiosInstance.post(`/admin/${ADMIN_URL}`, { adminEmail, adminPassword });
+            const response = await axiosInstance.post(`/admin/${ADMIN_URL}/login`, { adminEmail, adminPassword });
 
-            if (response.status === 200) {
+            console.log(response)
 
-                // put the proper response data
-                // return response.data.token;
+            if (response.data.success) {
+
+                return response.data.data.access_token;
             }
-        } catch (error) {
+        } catch (error: any) {
 
+            console.log(error)
             
-            // throw new Error(error.response.data.mensagem || 'Falha ao fazer login');
+            throw new Error(error.response.data.mensagem || 'Falha ao fazer login');
         }
     }
 };

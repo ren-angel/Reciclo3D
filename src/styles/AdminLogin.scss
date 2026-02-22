@@ -1,0 +1,38 @@
+@use "variables" as *;
+
+.admin-login {
+    min-height: 100svh;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+
+    background: linear-gradient(
+        180deg,
+        $bg-sections 0%,
+        $bg-contrast 100%
+    );
+}
+
+.admin-login-logo {
+    height: clamp(32px, 35vw, 150px);
+    width: auto;
+    margin-bottom: 24px;
+}
+
+/* Card */
+.admin-login-form {
+    width: 100%;
+    max-width: 380px;
+
+    background-color: #ffffff;
+    padding: clamp(24px, 4vw, 32px);
+    border-radius: 14px;
+
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}

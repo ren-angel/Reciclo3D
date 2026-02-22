@@ -3,10 +3,10 @@
 .home-card {
     display: flex;
     flex-direction: column;
-    align-items: center;
     background-color: $bg-contrast;
     border-radius: 10px 10px 0 0;
-    margin: 20px ;
+    margin: 20px;
+    overflow: hidden;
     
     .home-card-inner {
         display: flex;
@@ -15,21 +15,60 @@
         padding: 14px;  
         gap: 10px;
 
-        h3 {
-            margin: 0;
-            color: $text;
+        .home-card-text {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            
+            h3 {
+                margin: 0;
+                color: $text;
+            }
+    
+            p {
+                margin: 0;
+                color: $muted;
+                text-align: center;
+            }
         }
 
-        p {
-            margin: 0;
-            color: $muted;
-            text-align: center;
-        }
     }
 
-    img {
+    .home-card-media {
         width: 100%;
-        height: auto;
-        border-radius: 0 0 10px 10px;
+
+        // aspect-ratio for images is a good practice to prevent layout shifts and ensure consistent presentation across different screen sizes. By setting an aspect ratio, you can maintain the intended proportions of the image regardless of the actual dimensions of the image file. This is especially important for responsive design, where images may need to scale up or down based on the available space.
+        aspect-ratio: 4 / 3;
+        max-height: clamp(180px, 50vw, 384px);
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center center;
+        }
     }
+}
+
+@media (min-width: 1024px) {
+    .home-card {
+        flex-direction: row;
+        gap: 0;
+        margin: 50px;
+
+        .home-card-inner {
+            flex: 1;
+            padding: 20px;
+            justify-content: space-around;
+        }
+
+        a {
+            margin-top: 20px;
+        }
+
+        .home-card-media {
+            width: 40%;
+            max-height: none;
+        }
+     }
 }
