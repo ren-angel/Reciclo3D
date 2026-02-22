@@ -31,7 +31,7 @@ export class HomeServicesController {
 
   // Endpoint to retrieve the home Services section
   @Public() // Marking this endpoint as public, allowing access without JWT authentication
-  @Get(':homeServicesId')
+  @Get()
   find() {
 
     return this.findHomeServicesSectionsUseCase.execute();
