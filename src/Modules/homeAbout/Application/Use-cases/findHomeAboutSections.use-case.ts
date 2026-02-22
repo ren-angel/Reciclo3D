@@ -36,7 +36,7 @@ export class FindHomeAboutSectionsUseCase {
 
                 return {
                     message: 'Seção "Sobre nós" da Home obtida com sucesso.',
-                    cachedSection,
+                    section: cachedSection,
                 };
             }
 
@@ -65,7 +65,7 @@ export class FindHomeAboutSectionsUseCase {
 
             return {
                 message: 'Seção "Sobre nós" da Home obtida com sucesso.',
-                databaseHomeAboutSection: databaseHomeAboutSection[0],
+                section: databaseHomeAboutSection[0],
             };
         } catch (err) {
 
