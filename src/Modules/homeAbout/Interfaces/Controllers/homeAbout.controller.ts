@@ -11,6 +11,8 @@ import { JwtAuthGuard } from 'src/Modules/Shared/jwt.guard';
 import { Actor } from 'src/Modules/Shared/actor.decorator';
 import type { Actor as ActorType } from 'src/Modules/Shared/actor.interface';
 
+import { Public } from 'src/Modules/Shared/public.decorator';
+
 // Applying the JwtAuthGuard to the entire controller to protect all endpoints with JWT authentication
 @UseGuards(JwtAuthGuard)
 
@@ -27,15 +29,12 @@ export class HomeAboutController {
     private readonly deleteHomeAboutSectionUseCase: DeleteHomeAboutSectionUseCase,
   ) {}
 
-  // Endpoint to retrieve the home about section by its ID
+  // Endpoint to retrieve the home about section
+  @Public() // Marking this endpoint as public, allowing access without JWT authentication
   @Get(':homeAboutId')
-  findOne(
-    @Param('homeAboutId') aboutId: string,
-    @Actor() actor: ActorType,
-  ) {
+  find() {
 
-    // + operator to convert string to number
-    return this.findHomeAboutSectionsUseCase.execute(+aboutId, actor);
+    return this.findHomeAboutSectionsUseCase.execute();
   }
 
   // Endpoint to create a new home about section

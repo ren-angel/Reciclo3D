@@ -17,10 +17,10 @@ export class TypeOrmHomeAboutRepository implements HomeAboutRepositoryInterface 
         @InjectRepository(HomeAboutEntity) private readonly homeAboutRepository: Repository<HomeAboutEntity>,
     ) {}
     
-    // Method to retrieve the home about section by its ID
-    async findOne(homeAboutId: number): Promise<HomeAboutDto | null> {
+    // Method to retrieve the home about section
+    async find(): Promise<HomeAboutDto[] | null> {
         
-        const aboutSection = await this.homeAboutRepository.findOne({ where: { homeAboutId } });
+        const aboutSection = await this.homeAboutRepository.find();
         
         return plainToInstance(HomeAboutDto, aboutSection);
     }

@@ -7,7 +7,7 @@ import { DeleteResult } from "typeorm";
 export interface HomeAboutRepositoryInterface {
 
     // Method for retrieving the home "About" section by its ID using the provided DTO, returning a Promise that resolves to the HomeAboutDto or null if not found
-    findOne(homeAboutId: number): Promise<HomeAboutDto | null>;
+    find(): Promise<HomeAboutDto[] | null>;
 
     // Method for creating a new home "About" section using the provided DTO and returning a Promise that resolves to the created AboutEntity
     create(createHomeAboutSectionDto: CreateHomeAboutSectionDto): Promise<HomeAboutDto>;

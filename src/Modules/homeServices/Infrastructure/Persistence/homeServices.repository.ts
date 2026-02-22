@@ -17,10 +17,10 @@ export class TypeOrmHomeServicesRepository implements HomeServicesRepositoryInte
         @InjectRepository(HomeServicesEntity) private readonly homeServicesRepository: Repository<HomeServicesEntity>,
     ) {}
     
-    // Method to retrieve the home Services section by its ID
-    async findOne(homeServicesId: number): Promise<HomeServicesDto | null> {
+    // Method to retrieve the home Services section
+    async find(): Promise<HomeServicesDto[] | null> {
         
-        const servicesSection = await this.homeServicesRepository.findOne({ where: { homeServicesId } });
+        const servicesSection = await this.homeServicesRepository.find();
         
         return plainToInstance(HomeServicesDto, servicesSection);
     }

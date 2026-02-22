@@ -16,7 +16,7 @@ export class FindHomeServicesSectionsUseCase {
     ) {}
 
     // Method to find the home Services section by its ID, and returning a Promise that resolves to a object containing a success message and the found Services section data
-    async execute(homeServicesId: number, actor: ActorType): Promise<Object | null> {
+    async execute(): Promise<Object | null> {
 
         const sectionKey = 'home-services-section';
         const lockTtl = 2000; // 2 seconds in milliseconds. Lock has to last longer than the function it's running
@@ -24,17 +24,10 @@ export class FindHomeServicesSectionsUseCase {
 
         try {
 
-            this.logger.log('Veryfing user...');
-
-            if (!actor || !actor.roles?.includes('admin')) {
-                            
-                throw new ForbiddenError('Você não tem permissão para executar esta ação.');
-            }
-
-            this.logger.log('User verified. Fetching the home Services section from cache...');
+            this.logger.log('Fetching the home Services section from cache...');
 
             // Fetching the section from cache
-            const cachedSection = await this.cacheService.get<HomeServicesDto>(`${sectionKey}:${homeServicesId}`);
+            const cachedSection = await this.cacheService.get<HomeServicesDto>(`${sectionKey}`);
 
             // If found in cache, return it immediately
             if (cachedSection) {
@@ -51,9 +44,9 @@ export class FindHomeServicesSectionsUseCase {
             
             // Fetching the section from repository using lock to prevent cache stampede
             const databaseHomeServicesSection = await this.cacheService.withLock(
-                `read:${sectionKey}:${homeServicesId}`,
+                `read:${sectionKey}`,
                 lockTtl,
-                async () => await this.homeServicesRepository.findOne(homeServicesId)
+                async () => await this.homeServicesRepository.find()
             );
 
             // If no section is found, return null
@@ -66,13 +59,13 @@ export class FindHomeServicesSectionsUseCase {
             this.logger.log('Home Services section fetched successfully. Caching the result...');
 
             // Caching the fetched section for future requests
-            await this.cacheService.set<HomeServicesDto>(`${sectionKey}:${homeServicesId}`, databaseHomeServicesSection, sectionTtl);
+            await this.cacheService.set<HomeServicesDto>(`${sectionKey}`, databaseHomeServicesSection[0], sectionTtl);
 
             this.logger.log('Home Services section cached successfully.');
 
             return {
                 message: 'Seção "Serviços" da Home obtida com sucesso.',
-                databaseHomeServicesSection,
+                databaseHomeServicesSection: databaseHomeServicesSection[0],
             };
         } catch (err) {
 

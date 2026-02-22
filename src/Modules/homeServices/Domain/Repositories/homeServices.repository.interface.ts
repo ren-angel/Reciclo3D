@@ -7,7 +7,7 @@ import { DeleteResult } from "typeorm";
 export interface HomeServicesRepositoryInterface {
 
     // Method for retrieving the home "Services" section by its ID using the provided DTO, returning a Promise that resolves to the HomeServicesDto or null if not found
-    findOne(homeServicesId: number): Promise<HomeServicesDto | null>;
+    find(): Promise<HomeServicesDto[] | null>;
 
     // Method for creating a new home "Services" section using the provided DTO and returning a Promise that resolves to the created ServicesEntity
     create(createHomeServicesSectionDto: CreateHomeServicesSectionDto): Promise<HomeServicesDto>;
