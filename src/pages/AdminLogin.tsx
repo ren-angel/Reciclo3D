@@ -19,8 +19,8 @@ export default function AdminLogin() {
 
         if (cookies.token) {
 
-            navigate(`/admin/${import.meta.env.ADMIN_URL}/home`)
-            // navigate(`/admin/home`);
+            // navigate(`/admin/${import.meta.env.ADMIN_URL}/home`)
+            navigate(`/admin/home`);
         }
     }, [cookies.token, navigate]);
 
@@ -33,8 +33,8 @@ export default function AdminLogin() {
             const token = await adminService.login(adminEmail, adminPassword);
 
             setCookie("token", token, { path: '/' });
-            navigate(`/admin/${import.meta.env.ADMIN_URL}/home`);
-            // navigate(`/admin/home`);
+            // navigate(`/admin/${import.meta.env.ADMIN_URL}/home`);
+            navigate(`/admin/home`);
         } catch (error: any) {
 
             toast.error(error.message);
