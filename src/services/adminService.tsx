@@ -1,7 +1,8 @@
 import axiosInstance from './axiosInstance';
 import axios from 'axios';
 
-const API_ADMIN_URL = import.meta.env.VITE_API_ADMIN_URL;
+// const API_ADMIN_URL = import.meta.env.VITE_API_ADMIN_URL;
+const API_ADMIN_URL = "Z3ZOtDUMsy9wMXW";
 
 const adminService = {
 
