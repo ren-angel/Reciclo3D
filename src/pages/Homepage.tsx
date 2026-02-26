@@ -23,8 +23,8 @@ import homeServicesService from '../services/homeServicesService';
 
 export default function Homepage() {
 
-  const [homeAboutData, setHomeAboutData] = useState(null);
-  const [homeServicesData, setHomeServicesData] = useState(null);
+  // const [homeAboutData, setHomeAboutData] = useState(null);
+  // const [homeServicesData, setHomeServicesData] = useState(null);
   
   useEffect(() => {
   
