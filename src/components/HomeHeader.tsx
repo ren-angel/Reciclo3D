@@ -6,9 +6,10 @@ export default function HomeHeader() {
         <div className="container header-inner">
           <img src={Logo} alt="ReCiclo3D Logo" className="header-logo" aria-hidden />
           <div className='header-links'>
-            <a href="#about">Sobre Nós</a>
-            <a href="#contact">Objetivos</a>
-            <a href="#services">Serviços</a>
+            <a href="/">Home</a>
+            <a href="/about">Sobre Nós</a>
+            {/* <a href="#objectives">Objetivos</a> */}
+            {/* <a href="#services">Serviços</a> */}
           </div>
         </div>
       </header>

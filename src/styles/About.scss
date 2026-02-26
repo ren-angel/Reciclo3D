@@ -1,0 +1,143 @@
+@use "variables" as *;
+
+/* Page shell */
+.about-page {
+  min-height: 100svh;
+  padding: 14px;
+  background-color: $bg-sections;
+
+  .about-hero {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    padding: clamp(18px, 3vw, 28px) 0;
+
+    .about-hero-text {
+      h1 {
+        margin: 0 0 8px 0;
+        font-size: clamp(26px, 4.6vw, 44px);
+        line-height: 1.05;
+        color: $text;
+      }
+
+      .lead {
+        margin: 0;
+        color: $muted;
+        font-size: clamp(16px, 2.4vw, 20px);
+        max-width: 72ch;
+      }
+    }
+  }
+
+  /* Grid: single column mobile, two columns desktop */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    align-items: start;
+  }
+
+  .card {
+    background: $cards-color;
+    border-radius: 12px;
+    padding: 14px;
+    box-shadow: 0 18px 40px rgba(11,11,11,0.04);
+  }
+
+  .section-block {
+    h2 {
+      margin: 0 0 10px 0;
+      font-size: 1.05rem;
+      color: $text;
+    }
+
+    p, .list, .about-service p {
+      color: $muted;
+      font-size: 0.98rem;
+      line-height: 1.55;
+    }
+
+    .list {
+      margin: 0;
+      padding-left: 20px;
+    }
+  }
+
+  /* Main column styles */
+  .about-main {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+
+    .about-service {
+      margin-top: 8px;
+
+      h3 {
+        margin: 0 0 6px 0;
+        font-size: 1rem;
+        color: $secondary;
+      }
+    }
+  }
+
+  /* Sidebar styles */
+  .about-side {
+    .partners {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+
+      .partners-list {
+        margin: 0;
+        padding-left: 20px;
+        color: $muted;
+      }
+
+      .contact-cta {
+        margin-top: 6px;
+        h3 {
+          margin: 0 0 10px 0;
+          font-size: 1rem;
+          color: $text;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .about-page {
+    .about-hero {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+
+      .about-hero-text {
+        max-width: 60%;
+      }
+    }
+
+    .about-grid {
+      grid-template-columns: 1fr 360px;
+      gap: 28px;
+    }
+
+    .card {
+      padding: 18px;
+    }
+
+    .section-block {
+      h2 { font-size: 1.08rem; }
+      p, .list, .about-service p { font-size: 1rem; }
+    }
+
+    .about-side {
+      .partners {
+        position: sticky;
+        top: 28px;
+      }
+    }
+  }
+}

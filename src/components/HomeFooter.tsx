@@ -23,12 +23,12 @@ export default function HomeFooter() {
             </div>
             <div className='footer-contact'>
                 <div className='footer-email'>
-                    <p>Curabitur quis diam ullamcorper, fermentum tellus:</p>
-                    <a href="mailto:#">#</a>
+                    <p>Entre em contato conosco pelo nosso e-mail:</p>
+                    <a href="mailto:nauan.l.silva@aluno.senai.br">nauan.l.silva@aluno.senai.br</a>
                 </div>
                 <div className='footer-phone'>
-                    <p>Curabitur quis diam ullamcorper:</p>
-                    <a href="https://wa.me/#" target="_blank" rel="noopener noreferrer">Clique aqui para enviar uma mensagem pelo WhatsApp</a>
+                    <p>Ou pelo nosso telefone: +55 (11) 95965-7496</p>
+                    <a href="https://wa.me/5511959657496" target="_blank" rel="noopener noreferrer">Clique aqui para enviar uma mensagem pelo WhatsApp</a>
                 </div>
             </div>
         </div>
