@@ -4,7 +4,7 @@
 
 // https://picsum.photos/200/300
 
-import { useState, useEffect } from 'react';
+// import { useState, useEffect } from 'react';
 import HomeHeader from '../components/HomeHeader';
 import HomeFooter from '../components/HomeFooter';
 import HomeCards from '../components/HomeCards';
@@ -18,34 +18,34 @@ import incomeIcon from '../assets/income.png'
 import ShieldIcon from '../assets/shield.svg'
 import heroArt from '../assets/hero.jpg'; 
 
-import homeAboutService from '../services/homeAboutService';
-import homeServicesService from '../services/homeServicesService';
+// import homeAboutService from '../services/homeAboutService';
+// import homeServicesService from '../services/homeServicesService';
 
 export default function Homepage() {
 
   // const [homeAboutData, setHomeAboutData] = useState(null);
   // const [homeServicesData, setHomeServicesData] = useState(null);
   
-  useEffect(() => {
+  // useEffect(() => {
   
-    const fetchData = async () => {
+  //   const fetchData = async () => {
   
-      try {
+  //     try {
   
-        const aboutData = await homeAboutService.fetchHomeAboutSection();
-        setHomeAboutData(aboutData.homeAboutContentText);
+  //       const aboutData = await homeAboutService.fetchHomeAboutSection();
+  //       setHomeAboutData(aboutData.homeAboutContentText);
   
-        const servicesData = await homeServicesService.fetchHomeServicesSection();
-        setHomeServicesData(servicesData.homeServicesContentText);
-      } catch (error) {
+  //       const servicesData = await homeServicesService.fetchHomeServicesSection();
+  //       setHomeServicesData(servicesData.homeServicesContentText);
+  //     } catch (error) {
   
-        console.error(error);
-        // setLoading(false);
-      }
-    }
+  //       console.error(error);
+  //       // setLoading(false);
+  //     }
+  //   }
   
-    fetchData();
-  }, []);
+  //   fetchData();
+  // }, []);
 
   return (
     <div className="homepage">
